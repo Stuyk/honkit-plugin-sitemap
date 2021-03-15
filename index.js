@@ -12,8 +12,8 @@ function handlePageHook(page) {
         lang = lang + '/';
     }
 
-    const pathPrefix = this.config.get('pluginsConfig.sitemap.pathPrefix', '');
-    const url = this.output.toURL(pathPrefix + lang + page.path);
+    const pathSuffix = this.config.get('pluginsConfig.sitemap.pathSuffix', '');
+    const url = this.output.toURL(pathSuffix + lang + page.path);
 
     urls.push({ url });
     return page;

@@ -35,7 +35,7 @@
                 "required": true,
                 "title": "The host name for this book. ie. https://localhost:4000"
             },
-            "pathPrefix": {
+            "pathSuffix": {
                 "type": "string",
                 "required": false,
                 "title": "The prefix to append after url. Example: /docs/"
