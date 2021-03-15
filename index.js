@@ -1,4 +1,3 @@
-const url = require('url');
 const sm = require('sitemap');
 const urls = [];
 
@@ -13,16 +12,21 @@ function handlePageHook(page) {
     }
 
     const pathSuffix = this.config.get('pluginsConfig.sitemap.pathSuffix', '');
-    const url = this.output.toURL(pathSuffix + lang + page.path);
+    let url = this.output.toURL(pathSuffix + lang + page.path);
+    if (url.startsWith('./')) {
+        url = '';
+    }
 
     urls.push({ url });
     return page;
 }
 
 function handleFinishHook() {
+    const currentURL = new URL('/', this.config.get('pluginsConfig.sitemap.url'));
+
     const sitemap = sm.createSitemap({
         cacheTime: 600000,
-        hostname: new url.URL(this.config.get('pluginsConfig.sitemap.url'), '/'),
+        hostname: currentURL.href,
         urls: urls,
     });
 
