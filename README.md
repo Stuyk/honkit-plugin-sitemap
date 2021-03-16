@@ -1,6 +1,8 @@
 # Sitemap Generator for Honkit
 
-Generate a sitemap for the gitbook website. The output sitemap file is `sitemap.xml`.
+Generate a sitemap for the Honkit Documentation. The output sitemap file is `sitemap.xml` and copied automatically.
+
+This updates some older versions of this plugin from Gitbook to the modern era.
 
 ## Install
 
@@ -12,7 +14,7 @@ npm install honkit-plugin-sitemap --save-dev
 
 Add it to your `book.json` with a basic configuration:
 
-```js
+```json
 {
     "plugins": ["sitemap"],
     "pluginsConfig": {
